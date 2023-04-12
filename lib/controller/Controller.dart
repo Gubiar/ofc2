@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:ofc2/models/MaquinaObj.dart';
 import 'package:ofc2/models/UsuarioObj.dart';
 
 class Controller {
@@ -6,8 +7,9 @@ class Controller {
   static bool isDev = kDebugMode;
   static int resquestDurationSecondsTime = isDev ? 360 : 30;
 
-
   static UsuarioObj? usuarioLogado;
+
+  static List<MaquinaObj> lstMaquinas = [];
 
 
 }
