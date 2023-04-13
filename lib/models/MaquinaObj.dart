@@ -3,7 +3,11 @@ import 'package:ofc2/utils/StringUtils.dart';
 
 class MaquinaObj{
   String? nome;
-  String? token;
+  String? codigo;
+  String? nomeOperador;
+  String? idIot;
+  String? status;
+  
 
   MaquinaObj({Map<String, dynamic>? json}) {
     if (json != null) {
@@ -13,6 +17,9 @@ class MaquinaObj{
 
   fromJson(Map<String, dynamic> json) {
     nome =  StringUtils.checkNull(possibleNull: json['nome'].toString());
-    token = StringUtils.checkNull(possibleNull: json['token'].toString());
+    codigo =  StringUtils.checkNull(possibleNull: json['codigo'].toString());
+    nomeOperador =  StringUtils.checkNull(possibleNull: json['nomeOperador'].toString());
+    idIot =  StringUtils.checkNull(possibleNull: json['idIot'].toString());
+    status =  StringUtils.checkNull(possibleNull: json['status'].toString());
   }
 }

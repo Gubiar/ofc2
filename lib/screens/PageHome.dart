@@ -13,7 +13,16 @@ class _PageHomeState extends State<PageHome> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    Controller.lstMaquinas.clear();
+    for(int i = 0; i<5; i++){
+      Map<String, dynamic> m = {};
+      m["nome"] = "Maquina $i";
+      m["codigo"] = i;
+      m["nomeOperador"] = "Operador $i";
+      m["idIot"] = "IOT A$i";
+      m["status"] = "Ativa";
+      Controller.lstMaquinas.add(MaquinaObj(json: m));
+    }
     super.initState();
   }
 
@@ -51,8 +60,11 @@ class _PageHomeState extends State<PageHome> {
         right: 20,
         left: 20
       ),
+      margin: const EdgeInsets.only(
+        bottom: 20
+      ),
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: const Color(0xff1c193d),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -60,9 +72,148 @@ class _PageHomeState extends State<PageHome> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          const Text(
-            'Maquina 1',
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  const Text(
+                    'Identificação',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                      fontSize: 12
+                    ),
+                  ),
+
+                  Text(
+                    cadaMaquina.nome!,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600
+                    ),
+                  ),
+                ],
+              ),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  const Text(
+                    'Status',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12
+                    ),
+                  ),
+
+                  Text(
+                    cadaMaquina.status!,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600
+                    ),
+                  ),
+                ],
+              ),
+
+            ],
+          ),
+
+          const SizedBox(
+            height: 15,
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  const Text(
+                    'Operador',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12
+                    ),
+                  ),
+
+                  Text(
+                    cadaMaquina.nomeOperador!,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600
+                    ),
+                  ),
+                ],
+              ),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  const Text(
+                    'IOT',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12
+                    ),
+                  ),
+
+                  Text(
+                    cadaMaquina.idIot!.toString(),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600
+                    ),
+                  ),
+
+                ],
+              ),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  const Text(
+                    'Codigo',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12
+                    ),
+                  ),
+
+                  Text(
+                    cadaMaquina.codigo!.toString(),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600
+                    ),
+                  ),
+
+                ],
+              ),
+
+
+            ],
+          ),
 
         ],
       ),
