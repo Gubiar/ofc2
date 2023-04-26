@@ -20,7 +20,8 @@ class _PageHomeState extends State<PageHome> {
       m["codigo"] = i;
       m["nomeOperador"] = "Operador $i";
       m["idIot"] = "IOT A$i";
-      m["status"] = "Ativa";
+      i != 2 ? m["status"] = "Ativa" : m["status"] = "Desligada";
+      
       Controller.lstMaquinas.add(MaquinaObj(json: m));
     }
     super.initState();
@@ -64,7 +65,7 @@ class _PageHomeState extends State<PageHome> {
         bottom: 20
       ),
       decoration: BoxDecoration(
-        color: const Color(0xff1c193d),
+        color: cadaMaquina.status == "Ativa" ?  const Color(0xff1c193d) : const Color(0xFFFF0000),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
