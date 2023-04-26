@@ -19,6 +19,7 @@ dependencies:
   http: ^0.13.5
   get: ^4.6.5
   shared_preferences: ^2.1.0
+  web_socket_channel: ^2.4.0
 
 dev_dependencies:
   flutter_test:
