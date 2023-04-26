@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ofc2/screens/PageHome.dart';
 
 void main() {
   runApp(new MyApp());
@@ -108,6 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
     
       );
     }
-    void buttonPressed(){}
+    void buttonPressed(){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PageHome()),
+      );
+
+    }
     
 }
