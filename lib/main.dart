@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
     const title = 'WebSocket Demo';
     return const MaterialApp(
       title: title,
-      home: PageCadastro(),
+      home: PageLogin(),
     );
   }
 }
