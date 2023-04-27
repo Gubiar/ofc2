@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ofc2/screens/PageHome.dart';
+import 'package:ofc2/screens/PageCadastro.dart';
 
 class PageLogin extends StatefulWidget {
   const PageLogin({Key? key}) : super(key: key);
@@ -84,17 +85,25 @@ class _PageLoginState extends State<PageLogin> {
                   )
               ),
 
-              const Text(
+              
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PageCadastro()),
+                );
+                },
+
+                child: const Text(
                 "não tem conta? clique aqui",
                 style: TextStyle(fontSize:13.0,
                     color: Color(0xFFb3b3b3),
                     fontWeight: FontWeight.w500,
                     fontFamily: "Roboto"),
-              )
-            ]
-
+                ),
+              ),
+              ]),
         ),
-      ),
 
     );
   }
