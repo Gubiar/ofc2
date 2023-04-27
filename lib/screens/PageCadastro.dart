@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ofc2/screens/PageHome.dart';
+import 'package:ofc2/screens/PageLogin.dart';
 
 class PageCadastro extends StatefulWidget {
   const PageCadastro({Key? key}) : super(key: key);
@@ -113,17 +114,23 @@ class _PageCadastroState extends State<PageCadastro> {
                         fontFamily: "Roboto"),
                   )
               ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PageLogin()),
+                );
+                },
 
-              const Text(
-                "Voltar",
+                child: const Text(
+                'Voltar',
                 style: TextStyle(fontSize:13.0,
                     color: Color(0xFFb3b3b3),
                     fontWeight: FontWeight.w500,
                     fontFamily: "Roboto"),
-              )
-            ]
-
-        ),
+                ),
+              ),
+              ]),
       ),
 
     );
