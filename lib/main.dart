@@ -27,6 +27,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:ofc2/screens/PageLogin.dart';
+import 'package:ofc2/screens/PageHome.dart';
+import 'package:ofc2/screens/PageCadastro.dart';
+
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 void main() => runApp(const MyApp());
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
     const title = 'WebSocket Demo';
     return const MaterialApp(
       title: title,
-      home: PageLogin(),
+      home: PageCadastro(),
     );
   }
 }
