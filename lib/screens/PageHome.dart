@@ -54,9 +54,40 @@ class _PageHomeState extends State<PageHome> {
 
   Widget getVisualMaquina({required BuildContext context, required MaquinaObj cadaMaquina}) {
     return  InkWell(
+                        //Quando apertado
                          onTap: (){
                              print("Maquina "+cadaMaquina.codigo!.toString()+ " Selecionada");
+                             showDialog(
+        context: context,
+        builder: (BuildContext ctx) {
+          return AlertDialog(
+            title: const Text('Confirme sua ação'),
+            content: const Text('Você deseja desligar todas as maquinas?'),
+            actions: [
+              // Sim
+              TextButton(
+                  onPressed: () {
+                    // Remove the box
+                    setState(() {
+                      print("Sim");
+                    });
+
+                    // Close the dialog
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('Desligar maquinas')),
+              TextButton(
+                  onPressed: () {
+                    print("Não");
+                    // Close the dialog
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('Cancelar'))
+            ],
+          );
+        });
                          },
+                         //Container
                          child: Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(
