@@ -35,13 +35,13 @@ class _PageLoginState extends State<PageLogin> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const Text(
+              /*const Text(
                 "Faça Login",
                 style: TextStyle(fontSize:47.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w900,
                     fontFamily: "Roboto"),
-              ),
+              ),*/
 
               const Text(
                 "Email",
@@ -52,6 +52,7 @@ class _PageLoginState extends State<PageLogin> {
               ),
 
               const TextField(
+                keyboardType: TextInputType.emailAddress,
                 style: TextStyle(fontSize:12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
@@ -67,6 +68,7 @@ class _PageLoginState extends State<PageLogin> {
               ),
 
               const TextField(
+                obscureText: true,
                 style: TextStyle(fontSize:12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
