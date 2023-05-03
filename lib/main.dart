@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const title = 'Ofc 2';
+    const title ='Ofc 2';
     return GetMaterialApp(
       debugShowCheckedModeBanner: true,
       title: title,
