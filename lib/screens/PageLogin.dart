@@ -10,13 +10,11 @@ class PageLogin extends StatefulWidget {
 }
 
 class _PageLoginState extends State<PageLogin> {
-
-  buttonPressed(){
+  buttonPressed() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const PageHome()),
     );
-
   }
 
   @override
@@ -25,12 +23,10 @@ class _PageLoginState extends State<PageLogin> {
       appBar: AppBar(
         title: const Text('Login Usuário'),
       ),
-      body:
-      Container(
+      body: Container(
         padding: const EdgeInsets.all(0.0),
         alignment: Alignment.center,
-        child:
-        Column(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,68 +41,69 @@ class _PageLoginState extends State<PageLogin> {
 
               const Text(
                 "Email",
-                style: TextStyle(fontSize:12.0,
+                style: TextStyle(
+                    fontSize: 12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
                     fontFamily: "Roboto"),
               ),
-
               const TextField(
                 keyboardType: TextInputType.emailAddress,
-                style: TextStyle(fontSize:12.0,
+                style: TextStyle(
+                    fontSize: 12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
                     fontFamily: "Roboto"),
               ),
-
               const Text(
                 "senha",
-                style: TextStyle(fontSize:12.0,
+                style: TextStyle(
+                    fontSize: 12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
                     fontFamily: "Roboto"),
               ),
-
               const TextField(
                 obscureText: true,
-                style: TextStyle(fontSize:12.0,
+                style: TextStyle(
+                    fontSize: 12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
                     fontFamily: "Roboto"),
               ),
-
-              ElevatedButton(key:null, onPressed:buttonPressed,
-                  style: ElevatedButton.styleFrom( backgroundColor: const Color(0xFFe0e0e0),),
-                  child:
-                  const Text(
+              ElevatedButton(
+                  key: null,
+                  onPressed: buttonPressed,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFe0e0e0),
+                  ),
+                  child: const Text(
                     "login",
-                    style: TextStyle(fontSize:23.0,
+                    style: TextStyle(
+                        fontSize: 23.0,
                         color: Color(0xFF000000),
                         fontWeight: FontWeight.w900,
                         fontFamily: "Roboto"),
-                  )
-              ),
-
-              
+                  )),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PageCadastro()),
-                );
+                    MaterialPageRoute(
+                        builder: (context) => const PageCadastro()),
+                  );
                 },
-
                 child: const Text(
-                "não tem conta? clique aqui",
-                style: TextStyle(fontSize:13.0,
-                    color: Color(0xFFb3b3b3),
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Roboto"),
+                  "não tem conta? clique aqui",
+                  style: TextStyle(
+                      fontSize: 13.0,
+                      color: Color(0xFFb3b3b3),
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "Roboto"),
                 ),
               ),
-              ]),
-        ),
-
+            ]),
+      ),
     );
   }
 }
