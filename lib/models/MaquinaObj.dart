@@ -6,7 +6,7 @@ class MaquinaObj{
   String? codigo;
   String? nomeOperador;
   String? idIot;
-  String? status;
+  String? status; //1 = OK | 2 = Atenção | 3 = Manutenção
   
 
   MaquinaObj({Map<String, dynamic>? json}) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ofc2/controller/WebSocketController.dart';
 
 class PageSplash extends StatefulWidget {
   const PageSplash({Key? key}) : super(key: key);
@@ -23,7 +24,8 @@ class _PageSplashState extends State<PageSplash> {
   }
 
   init() async {
-
+    await WebSocketController.setup();
+    Get.toNamed('/PageLogin');
   }
 
   @override
@@ -36,11 +38,13 @@ class _PageSplashState extends State<PageSplash> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/splash.png',
-              width: Get.width * 0.6,
-              fit: BoxFit.contain,
-            )
+            // Image.asset(
+            //   'assets/images/splash.png',
+            //   width: Get.width * 0.6,
+            //   fit: BoxFit.contain,
+            // )
+
+            Text('Bora teta')
           ],
         ),
       ),

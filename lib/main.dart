@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ofc2/screens/PageHome.dart';
 import 'package:ofc2/screens/PageLogin.dart';
+import 'package:ofc2/screens/PageSplash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       title: title,
       getPages: [
-        GetPage(name: '/', page: () => const PageLogin()),
+        GetPage(name: '/', page: () => const PageSplash()),
+        GetPage(name: '/PageLogin', page: () => const PageLogin()),
+        GetPage(name: '/PageHome', page: () => const PageHome()),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ofc2/screens/PageHome.dart';
 import 'package:ofc2/screens/PageCadastro.dart';
 
@@ -11,10 +12,7 @@ class PageLogin extends StatefulWidget {
 
 class _PageLoginState extends State<PageLogin> {
   buttonPressed() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const PageHome()),
-    );
+    Get.toNamed('/PageHome');
   }
 
   @override

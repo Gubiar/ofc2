@@ -7,10 +7,5 @@ class Controller extends GetxController {
   static const url = "https://backend.com";
   static bool isDev = kDebugMode;
   static int resquestDurationSecondsTime = isDev ? 360 : 30;
-
   static UsuarioObj? usuarioLogado;
-
-  static List<MaquinaObj> lstMaquinas = [];
-
-
 }
