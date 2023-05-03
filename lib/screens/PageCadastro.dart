@@ -82,6 +82,7 @@ class _PageCadastroState extends State<PageCadastro> {
               ),
 
               const TextField(
+                obscureText: true,
                 style: TextStyle(fontSize:12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
@@ -97,6 +98,7 @@ class _PageCadastroState extends State<PageCadastro> {
               ),
 
               const TextField(
+                obscureText: true,
                 style: TextStyle(fontSize:12.0,
                     color: Color(0xFF000000),
                     fontWeight: FontWeight.w200,
