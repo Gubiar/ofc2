@@ -53,7 +53,11 @@ class _PageHomeState extends State<PageHome> {
   }
 
   Widget getVisualMaquina({required BuildContext context, required MaquinaObj cadaMaquina}) {
-    return Container(
+    return  InkWell(
+                         onTap: (){
+                             print("Maquina "+cadaMaquina.codigo!.toString()+ " Selecionada");
+                         },
+                         child: Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(
         top: 20,
@@ -65,7 +69,7 @@ class _PageHomeState extends State<PageHome> {
         bottom: 20
       ),
       decoration: BoxDecoration(
-        color: cadaMaquina.status == "Ativa" ?  const Color(0xff1c193d) : const Color(0xFFFF0000),
+        color: cadaMaquina.status == "Ativa" ?  const Color(0xff1c193d) : const Color(0xFFF6BE00),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -217,6 +221,7 @@ class _PageHomeState extends State<PageHome> {
           ),
 
         ],
+      ),
       ),
     );
   }
