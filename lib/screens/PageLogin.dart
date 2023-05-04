@@ -17,6 +17,9 @@ class _PageLoginState extends State<PageLogin> {
 
   @override
   Widget build(BuildContext context) {
+
+    Size _windowsSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Usuário'),
@@ -37,38 +40,41 @@ class _PageLoginState extends State<PageLogin> {
                     fontFamily: "Roboto"),
               ),*/
 
-              const Text(
-                "Email",
-                style: TextStyle(
-                    fontSize: 12.0,
-                    color: Color(0xFF000000),
-                    fontWeight: FontWeight.w200,
-                    fontFamily: "Roboto"),
+              SizedBox(
+                width: _windowsSize.width * 0.9,
+                child: Column(
+                  children: [
+
+                    TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 20,
+                    ),
+
+                    StatefulBuilder(
+                      builder: (BuildContext context) => TextField(
+                        keyboardType: TextInputType.visiblePassword,
+                        decoration: InputDecoration(
+                            labelText: 'Senha',
+                            suffixIcon: IconButton(
+                                icon: Icon(
+                                  size: 20,
+                                  color: Color(0xff231942),
+                                )
+                            )
+                        ),
+                      ),
+                    )
+
+                  ],
+                ),
               ),
-              const TextField(
-                keyboardType: TextInputType.emailAddress,
-                style: TextStyle(
-                    fontSize: 12.0,
-                    color: Color(0xFF000000),
-                    fontWeight: FontWeight.w200,
-                    fontFamily: "Roboto"),
-              ),
-              const Text(
-                "senha",
-                style: TextStyle(
-                    fontSize: 12.0,
-                    color: Color(0xFF000000),
-                    fontWeight: FontWeight.w200,
-                    fontFamily: "Roboto"),
-              ),
-              const TextField(
-                obscureText: true,
-                style: TextStyle(
-                    fontSize: 12.0,
-                    color: Color(0xFF000000),
-                    fontWeight: FontWeight.w200,
-                    fontFamily: "Roboto"),
-              ),
+
               ElevatedButton(
                   key: null,
                   onPressed: buttonPressed,
