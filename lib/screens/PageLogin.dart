@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ofc2/rest/auth/Auth.dart';
 import 'package:ofc2/screens/PageHome.dart';
 import 'package:ofc2/screens/PageCadastro.dart';
 
@@ -11,102 +12,135 @@ class PageLogin extends StatefulWidget {
 }
 
 class _PageLoginState extends State<PageLogin> {
-  buttonPressed() {
-    Get.toNamed('/PageHome');
-  }
+
+  RxBool isObscure = true.obs;
+  RxBool isLoading = false.obs;
+  final emailController = TextEditingController();
+  final senhaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
-    Size _windowsSize = MediaQuery.of(context).size;
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login Usuário'),
-      ),
       body: Container(
         padding: const EdgeInsets.all(0.0),
         alignment: Alignment.center,
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              /*const Text(
-                "Faça Login",
-                style: TextStyle(fontSize:47.0,
-                    color: Color(0xFF000000),
-                    fontWeight: FontWeight.w900,
-                    fontFamily: "Roboto"),
-              ),*/
-
-              SizedBox(
-                width: _windowsSize.width * 0.9,
-                child: Column(
-                  children: [
-
-                    TextField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                      ),
-                    ),
-
-                    const SizedBox(
-                      height: 20,
-                    ),
-
-                    StatefulBuilder(
-                      builder: (BuildContext context) => TextField(
-                        keyboardType: TextInputType.visiblePassword,
+        child: SingleChildScrollView(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/logo.png',
+                  width: Get.width * 0.4,
+                  fit: BoxFit.contain,
+                  color: Colors.black87,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                SizedBox(
+                  width: Get.width * 0.9,
+                  child: Column(
+                    children: [
+                      TextField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: emailController,
                         decoration: InputDecoration(
-                            labelText: 'Senha',
-                            suffixIcon: IconButton(
-                                icon: Icon(
-                                  size: 20,
-                                  color: Color(0xff231942),
-                                )
-                            )
+                          labelText: 'Email',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
                       ),
-                    )
-
-                  ],
-                ),
-              ),
-
-              ElevatedButton(
-                  key: null,
-                  onPressed: buttonPressed,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFe0e0e0),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Obx(() => TextField(
+                        keyboardType: TextInputType.visiblePassword,
+                        controller: senhaController,
+                        obscureText: isObscure.value,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            labelText: 'Senha',
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                (isObscure.value)
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                size: 20,
+                                color: const Color(0xff231942),
+                              ),
+                              onPressed: () =>
+                              isObscure.value = !isObscure.value,
+                            )),
+                      ))
+                    ],
                   ),
-                  child: const Text(
-                    "login",
-                    style: TextStyle(
-                        fontSize: 23.0,
-                        color: Color(0xFF000000),
-                        fontWeight: FontWeight.w900,
-                        fontFamily: "Roboto"),
-                  )),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const PageCadastro()),
-                  );
-                },
-                child: const Text(
-                  "não tem conta? clique aqui",
-                  style: TextStyle(
-                      fontSize: 13.0,
-                      color: Color(0xFFb3b3b3),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "Roboto"),
                 ),
-              ),
-            ]),
+                SizedBox(
+                  height: 20,
+                ),
+                InkWell(
+                  onTap: () async {
+                    if(emailController.text.isEmpty || senhaController.text.isEmpty){
+                      Get.snackbar('login Inválido!', 'Preencha todos os campos');
+                    } else {
+                      isLoading.value = true;
+                      String retorno = await Auth.postLogin(emailController.text, senhaController.text);
+                      isLoading.value = false;
+                      if(retorno == "true"){
+                        Get.offAllNamed('/PageHome');
+                      } else if(retorno == 'catch'){
+                        Get.snackbar('Erro no login!', "Não foi possível validar o login.");
+                      } else {
+                        Get.snackbar('Dados incorretos!', retorno);
+                      }
+
+                    }
+                  },
+                  child: Container(
+                    width: Get.width * 0.9,
+                    height: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.black87,
+                    ),
+                    child: Obx(() => ((isLoading.value) ? CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 3,
+
+                    ) : const Text(
+                      'Entrar',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600
+                      ),
+                    ))),
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 10,
+                ),
+
+                TextButton(
+                    onPressed: () => Get.offAllNamed("/PageCadastro"),
+                    child: const Text(
+                      "Não tem conta? Clique aqui",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )
+                )
+              ]),
+        ),
       ),
     );
   }

@@ -38,13 +38,11 @@ class _PageSplashState extends State<PageSplash> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Image.asset(
-            //   'assets/images/splash.png',
-            //   width: Get.width * 0.6,
-            //   fit: BoxFit.contain,
-            // )
-
-            Text('Bora teta')
+            Image.asset(
+              'assets/images/logo.png',
+              width: Get.width * 0.6,
+              fit: BoxFit.contain,
+            )
           ],
         ),
       ),

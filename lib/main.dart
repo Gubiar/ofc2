@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ofc2/screens/PageCadastro.dart';
 import 'package:ofc2/screens/PageHome.dart';
 import 'package:ofc2/screens/PageLogin.dart';
 import 'package:ofc2/screens/PageSplash.dart';
@@ -16,11 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const title = 'Ofc 2';
     return GetMaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       title: title,
       getPages: [
         GetPage(name: '/', page: () => const PageSplash()),
         GetPage(name: '/PageLogin', page: () => const PageLogin()),
+        GetPage(name: '/PageCadastro', page: () => const PageCadastro()),
         GetPage(name: '/PageHome', page: () => const PageHome()),
       ],
     );
