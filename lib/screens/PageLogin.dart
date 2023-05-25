@@ -47,7 +47,7 @@ class _PageLoginState extends State<PageLogin> {
                         keyboardType: TextInputType.emailAddress,
                         controller: emailController,
                         decoration: InputDecoration(
-                          labelText: 'Email',
+                          labelText: 'Usuário',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
