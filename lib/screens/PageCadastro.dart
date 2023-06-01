@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ofc2/rest/auth/Auth.dart';
-import 'package:ofc2/screens/PageHome.dart';
-import 'package:ofc2/screens/PageCadastro.dart';
 
 class PageCadastro extends StatefulWidget {
   const PageCadastro({Key? key}) : super(key: key);
@@ -56,7 +54,7 @@ class _PageCadastroState extends State<PageCadastro> {
                         ),
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
 
@@ -127,7 +125,7 @@ class _PageCadastroState extends State<PageCadastro> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 InkWell(
@@ -183,7 +181,7 @@ class _PageCadastroState extends State<PageCadastro> {
 
                 TextButton(
                     onPressed: () => Get.offAllNamed("/PageLogin"),
-                    child: Text(
+                    child: const Text(
                       "Já é cadastrado? Faça o login",
                       style: TextStyle(
                         fontSize: 14.0,
