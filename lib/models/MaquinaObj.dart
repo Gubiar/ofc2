@@ -17,9 +17,9 @@ class MaquinaObj{
 
   fromJson(Map<String, dynamic> json) {
     nome =  StringUtils.checkNull(possibleNull: json['nome'].toString());
-    codigo =  StringUtils.checkNull(possibleNull: json['codigo'].toString());
+    codigo =  StringUtils.checkNull(possibleNull: json['id'].toString());
     nomeOperador =  StringUtils.checkNull(possibleNull: json['nomeOperador'].toString());
-    idIot =  StringUtils.checkNull(possibleNull: json['idIot'].toString());
+    idIot =  StringUtils.checkNull(possibleNull: json['iotUUID'].toString());
     status =  StringUtils.checkNull(possibleNull: json['status'].toString());
   }
 }

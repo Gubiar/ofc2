@@ -9,7 +9,7 @@ class Auth{
 
   static Future<String> postLogin(String login, String senha) async {
 
-    String mapToSend = '{"email":"$login","password":"$senha"}';
+    String mapToSend = '{"usuario":"$login","senha":"$senha"}';
     debugPrint('postLogin body $mapToSend');
 
     try {

@@ -8,7 +8,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
 
 class WebSocketController extends GetxController {
-  static final wsUrl = Uri.parse('ws://192.168.0.102:3001/');
+  static final wsUrl = Uri.parse('ws://192.168.1.104:3001/');
   static var channel;
 
   static Future<bool> setup() async {

@@ -25,7 +25,7 @@ class _PageSplashState extends State<PageSplash> {
 
   init() async {
     await WebSocketController.setup();
-    Get.toNamed('/PageLogin');
+    Get.toNamed('/PageHome');
   }
 
   @override

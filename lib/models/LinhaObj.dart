@@ -15,8 +15,8 @@ class LinhaObj{
   }
 
   fromJson(Map<String, dynamic> json) {
-    nome =  StringUtils.checkNull(possibleNull: json['nomeLinha'].toString());
-    codigo =  StringUtils.checkNull(possibleNull: json['codigo'].toString());
+    nome =  StringUtils.checkNull(possibleNull: json['nome'].toString());
+    codigo =  StringUtils.checkNull(possibleNull: json['id'].toString());
     if(json['maquinas'] != null){
       lstMaquinas?.clear();
       for(dynamic cada in json['maquinas']){
